@@ -9,6 +9,8 @@
 
 AI service for CV parsing and job recommendation, built with FastAPI and ChromaDB.
 
+![API Documentation Overview](assets/swagger-ui.jpeg)
+
 ## Tech Stack
 
 - **FastAPI** — REST API framework
@@ -48,12 +50,12 @@ ai-service/
 
 ## Installation
 
-1. ***Clone the repository***
+### 1. ***Clone the repository***
 ```bash
 git clone https://github.com/Axololt7923/ai-service.git
 cd ai-service
 ```
-2. ***Create virtual environment***
+### 2. ***Create virtual environment***
 
 * **Windows:**
 ```bash
@@ -72,7 +74,7 @@ make install
 > [!WARNING]
 > **Warning for Windows users:** If you are using Windows, you may need to install the `make` utility.
 ```bash
-    choco install make
+choco install make
 ```
 
 3. ***Create `.env` file***
@@ -83,13 +85,33 @@ SENTENCE_TRANSFORMERS_HOME=./models
 
 #Optional
 HF_TOKEN=your_huggingface_token
+FIXED_API_KEY=random-api-key-12345678910
+ENABLE_API_KEY=true
 ```
-*(Optional: Set `HF_TOKEN` to your HuggingFace token to get faster model downloads)*
+*(Optional: Set `HF_TOKEN` to your HuggingFace token to get faster model downloads,
+`FIXED_API_KEY` to a fixed API key for authentication,
+`ENABLE_API_KEY` to enable API key authentication.)*
 
 ## Running
 ```bash
 make run
 ```
+
+Terminal logging should look like this:
+> [!NOTE]
+> **Note:** The server may take a few minutes to start up.
+![Server Running](assets/terminal-log.png)
+
+## Core Features
+
+1. AI-Powered CV Parsing
+Extract information from file PDF via Google Gemini API.
+![CV Parsing Demo](assets/cv-parsing-demo.gif)
+
+2. Smart Job Recommendation
+Find semantic match using the vector database (ChromaDB).
+![Job Recommendation Demo](assets/job-recommend-demo.gif)
+
 
 ## API Reference
 
@@ -114,6 +136,9 @@ Most APIs (except `/health`) require authentication using an API Key.
 | **Job**    |  `GET`   | `/jobs/recommend/{cv_id}` | **[AI Core]** Recommend the most suitable jobs for a CV. |
 | **Job**    | `DELETE` | `/jobs/{chroma_id}`       | Delete a job.                                            |
 | **System** |  `GET`   | `/health`                 | Check the server status.                                 |
+
+POST "/cv_parsed" details:
+![API Endpoint Detail](assets/api-endpoint-detail.png)
 
 ---
 

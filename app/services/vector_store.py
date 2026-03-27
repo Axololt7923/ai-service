@@ -162,7 +162,7 @@ def process_and_store_cv(file_bytes: bytes, user_id: str) -> CVParsedResponse:
     )
 
     return CVParsedResponse(
-        chroma_id=chroma_id,
+        chroma_id=chroma_id[3:],
         skills=parsed.get("skills", []),
         experience_years=parsed.get("experience_years", 0),
         education_level=parsed.get("education_level", "other"),
