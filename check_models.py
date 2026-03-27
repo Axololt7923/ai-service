@@ -2,6 +2,8 @@ import google.generativeai as genai
 import dotenv
 import os
 
+#this program checks which Gemini models are available for the provided API token
+
 dotenv.load_dotenv()
 
 gemini_api_key = os.getenv("GEMINI_API_KEY")
