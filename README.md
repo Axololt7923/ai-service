@@ -25,6 +25,8 @@ ai-service/
 │   ├── routers/
 │   │   ├── cv.py            # CV parsing endpoints
 │   │   └── recommend.py     # Job recommendation endpoints
+│   ├── security/
+│   │   ├── security.py      # API Key authentication and security middleware
 │   ├── services/
 │   │   ├── cv_parser.py     # PDF parsing with Gemini
 │   │   ├── embedder.py      # Text embedding with MiniLM
