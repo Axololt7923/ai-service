@@ -1,0 +1,175 @@
+# ==========================================
+# Environment Variables
+# ==========================================
+@baseUrl = http://127.0.0.1:8000
+
+#This is default key, add it to .env when deploy
+@apiKey = random-api-key-12345678910
+
+# ==========================================
+# System Endpoints
+# ==========================================
+
+### Health Check
+GET {{baseUrl}}/health
+Accept: application/json
+
+# ==========================================
+# CV Management
+# ==========================================
+
+### Get All CVs
+#GET {{baseUrl}}/cv?offset=...&limit=...
+#Limit in range 0 - 10, offset > -1
+GET {{baseUrl}}/cv
+X-API-Key: {{apiKey}}
+Accept: application/json
+
+### Get CVs by id
+#GET {{baseUrl}}/cv?job_id=...
+GET {{baseUrl}}/cv_parsed?job_id=1
+X-API-Key: {{apiKey}}
+Accept: application/json
+
+### Delete CV (ID: you gonna need to store id when upsert or get from get all
+#(i don't want to delete cv just more update in real life))
+#DELETE {{baseUrl}}/cv_parsed/{chroma_id}
+DELETE {{baseUrl}}/cv_parsed/1
+# ==========================================
+# Job Management: Upsert
+# ==========================================
+
+### Upsert Job 1
+POST {{baseUrl}}/jobs
+X-API-Key: {{apiKey}}
+Content-Type: application/json
+
+{
+  "job_id": "1",
+  "title": "Junior Data Engineer",
+  "company": "DataStream Solutions",
+  "description": "We are looking for a Data Engineer to maintain and optimize our data pipelines. You will work closely with the analytics team to ensure data quality and availability.",
+  "requirements": "Proficiency in SQL and Python. Experience with ETL processes and relational databases like PostgreSQL. Familiarity with Airflow is a plus."
+}
+
+### Upsert Job 2
+POST {{baseUrl}}/jobs
+X-API-Key: {{apiKey}}
+Content-Type: application/json
+
+{
+  "job_id": "2",
+  "title": "Data Analyst (Market Trends)",
+  "company": "Global Retail Corp",
+  "description": "The Data Analyst will perform deep-dive exploratory data analysis to identify customer trends and optimize marketing spend. You will build dashboards to visualize KPIs.",
+  "requirements": "Strong experience in SQL and Python (Pandas/NumPy). Proficiency in Tableau or Power BI. Ability to communicate technical insights to non-technical stakeholders."
+}
+
+### Upsert Job 3
+POST {{baseUrl}}/jobs
+X-API-Key: {{apiKey}}
+Content-Type: application/json
+
+{
+  "job_id": "3",
+  "title": "Machine Learning Engineer",
+  "company": "TechVision AI",
+  "description": "Join our AI team to develop and deploy predictive models. You will be responsible for the full ML lifecycle from data preprocessing to model monitoring.",
+  "requirements": "Strong background in Machine Learning algorithms (Regression, Classification). Experience with Scikit-learn, PyTorch, or TensorFlow. Experience with AWS SageMaker is preferred."
+}
+
+### Upsert Job 4
+POST {{baseUrl}}/jobs
+X-API-Key: {{apiKey}}
+Content-Type: application/json
+
+{
+  "job_id": "4",
+  "title": "Kỹ sư Dữ liệu (Data Engineer)",
+  "company": "FPT Software",
+  "description": "Vị trí này tập trung vào việc xây dựng và quản lý các đường ống dữ liệu (data pipelines) quy mô lớn. Bạn sẽ xử lý dữ liệu thô và tối ưu hóa kho dữ liệu của công ty.",
+  "requirements": "Thành thạo SQL và Python. Có kinh nghiệm với các công cụ Big Data như Spark, Hadoop hoặc Kafka. Hiểu biết về kiến trúc kho dữ liệu (Data Warehouse)."
+}
+
+### Upsert Job 5
+POST {{baseUrl}}/jobs
+X-API-Key: {{apiKey}}
+Content-Type: application/json
+
+{
+  "job_id": "5",
+  "title": "Chuyên viên Phân tích Dữ liệu Cấp cao",
+  "company": "VinGroup Digital",
+  "description": "Bạn sẽ dẫn dắt các dự án phân tích dữ liệu để cải thiện tỷ lệ giữ chân khách hàng và tối ưu hóa vận hành. Thực hiện các thử nghiệm A/B nâng cao để đưa ra quyết định chiến lược.",
+  "requirements": "Ít nhất 3 năm kinh nghiệm trong mảng Data. Thành thạo Python, SQL và các công cụ trực quan hóa (Tableau/Power BI). Có khả năng làm việc với các tập dữ liệu lớn (Big Data)."
+}
+
+### Upsert Job 6
+POST {{baseUrl}}/jobs
+X-API-Key: {{apiKey}}
+Content-Type: application/json
+
+{
+  "job_id": "6",
+  "title": "Kỹ sư AI tạo sinh (Generative AI/RAG Engineer)",
+  "company": "Zalo AI Lab",
+  "description": "Vị trí phù hợp nhất cho các ứng viên có kinh nghiệm về RAG và LLMs. Bạn sẽ xây dựng các hệ thống tìm kiếm thông minh và chatbot dựa trên kiến trúc Vector Database.",
+  "requirements": "Kinh nghiệm thực tế với LLMs (OpenAI, Llama) và Vector Databases (ChromaDB/Pinecone). Thành thạo kỹ thuật Retrieval-Augmented Generation (RAG). Kỹ năng Python cực tốt."
+}
+
+### Upsert Job 7
+POST {{baseUrl}}/jobs
+X-API-Key: {{apiKey}}
+Content-Type: application/json
+
+{
+  "job_id": "129",
+  "title": "Thực tập sinh Lập trình Di động (Android/React Native)",
+  "company": "",
+  "description": "Cùng đội ngũ kỹ sư phát triển các tính năng mới cho ứng dụng di động phục vụ hàng triệu người dùng. Chịu trách nhiệm chuyển đổi các bản thiết kế từ Figma thành giao diện tương tác và kết nối với hệ thống API của Backend.",
+  "requirements": "Đam mê lập trình di động. Có kiến thức nền tảng tốt về phát triển ứng dụng. Từng có đồ án cá nhân làm bằng Android Studio hoặc React Native. Có tư duy về UI/UX và khả năng làm việc nhóm hiệu quả."
+}
+
+### Upsert Job 8
+POST {{baseUrl}}/jobs
+X-API-Key: {{apiKey}}
+Content-Type: application/json
+
+{
+  "job_id": "130",
+  "title": "Chuyên viên Phân tích Dữ liệu (Data Analyst Fresher)",
+  "company": "",
+  "description": "Thu thập, làm sạch và phân tích dữ liệu thị trường lao động để tìm ra các xu hướng tuyển dụng mới. Xây dựng các báo cáo trực quan hóa dữ liệu (Dashboard) giúp ban giám đốc đưa ra quyết định chiến lược.",
+  "requirements": "Tốt nghiệp các khối ngành CNTT, Toán tin hoặc Kinh tế. Sử dụng tốt SQL để truy vấn dữ liệu phức tạp. Có kỹ năng sử dụng Python (Pandas, NumPy) hoặc các công cụ BI (Tableau, PowerBI). Cẩn thận và nhạy bén với những con số."
+}
+
+###
+# ==========================================
+# Job Management: Retrieval & Deletion
+# ==========================================
+
+### Get Job by ID
+#```GET {{baseUrl}}/jobs/{job_id_here}```
+GET {{baseUrl}}/recommend/jobs/456
+X-API-Key: {{apiKey}}
+Accept: application/json
+
+### Delete Job (ID: 1)
+DELETE {{baseUrl}}/recommend/jobs/1
+X-API-Key: {{apiKey}}
+
+### Delete Job (ID: 56) not exist
+DELETE {{baseUrl}}/recommend/jobs/56
+X-API-Key: {{apiKey}}
+
+# ==========================================
+# Recommendation Engine
+# ==========================================
+
+### Get Job Recommendations
+# Returns top_k most similar jobs for a given CV Chroma ID
+# GET {{baseUrl}}/jobs/recommend/{cv_id}?top_k=...
+# top_k default is 10 and top_k required < 10
+GET {{baseUrl}}/jobs/recommend/1?top_k=2
+X-API-Key: {{apiKey}}
+

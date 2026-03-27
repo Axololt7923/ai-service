@@ -1,0 +1,25 @@
+# Dot enviroment File
+.env
+
+# Virtual env python
+.venv
+.venv/
+env/
+
+# Data and models
+chroma_data/
+chroma_data
+models/
+
+# Idea file
+.idea/
+.vscode/
+
+# Cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+.DS_Store
+Thumbs.db
