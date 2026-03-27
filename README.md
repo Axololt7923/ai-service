@@ -79,7 +79,7 @@ make install
 choco install make
 ```
 
-3. ***Create `.env` file***
+### 3. ***Create `.env` file***
 ```
 GEMINI_API_KEY=your_gemini_api_key
 CHROMA_PATH=./chroma_data
