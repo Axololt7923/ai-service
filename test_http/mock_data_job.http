@@ -17,6 +17,23 @@ Accept: application/json
 # ==========================================
 # CV Management
 # ==========================================
+### POST CV for parsed
+POST http://127.0.0.1:8000/cv_parsed
+accept: application/json
+X-API-KEY: random_api_key_for_testing
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="cv_vn.pdf"
+Content-Type: application/pdf
+
+< ../test_cv_data/cv_vn.pdf
+--WebAppBoundary
+Content-Disposition: form-data; name="user_id"
+
+cv_vn
+--WebAppBoundary--
+
 
 ### Get All CVs
 #GET {{baseUrl}}/cv?offset=...&limit=...

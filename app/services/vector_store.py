@@ -138,9 +138,10 @@ def get_collection_object(collection, limit: int, offset: int) -> tuple[int, int
         raise HTTPException(status_code=403, detail="Not valid offset must be greater than -1")
 
     result = collection.get(include=["metadatas"])
-
+    if len(result["ids"]) == 0:
+        return 0, 0, result
     begin_idx = offset if offset < len(result["ids"]) else len(result["ids"]) - 1
-    range_return = offset + limit if offset + limit < len(result["ids"]) else len(result["ids"])
+    range_return = begin_idx + limit if begin_idx + limit < len(result["ids"]) else len(result["ids"])
 
     return begin_idx, range_return, result
 

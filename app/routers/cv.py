@@ -23,7 +23,7 @@ async def parse_and_embed_cv_process(file: UploadFile = File(...),
 
 # for test only
 @router.get("", response_model=list[CVResponse])
-async def cv_parsed(api_key: str = Depends(get_authorize), limit: int =25, offset: int = 50):
+async def cv_parsed(api_key: str = Depends(get_authorize), limit: int =25, offset: int = 0):
     return get_all_cv_info(limit, offset)
 
 

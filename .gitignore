@@ -5,6 +5,7 @@
 .venv
 .venv/
 env/
+tui.py
 
 # Data and models
 chroma_data/
