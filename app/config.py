@@ -1,6 +1,6 @@
 import os
 import torch
-import google.generativeai as genai
+from google import genai
 import chromadb
 from dotenv import load_dotenv
 from sentence_transformers import SentenceTransformer
@@ -25,8 +25,7 @@ embedding_model = SentenceTransformer(
 )
 
 # -- gemini client -----------------------------------------
-genai.configure(api_key=GEMINI_API_KEY)
-gemini_model = genai.GenerativeModel("gemini-2.5-flash")
+client=genai.Client(api_key=GEMINI_API_KEY)
 
 # -- chromadb client + collections ------------------------
 chroma_client = chromadb.PersistentClient(path=CHROMA_PATH)

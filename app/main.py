@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from app.routers import cv, recommend
 
 app = FastAPI(
-    title="CareerMatch AI Service",
+    title="JobMatch AI Service",
     version="1.0.0",
     description="AI service for CV parsing and job recommendation"
 )

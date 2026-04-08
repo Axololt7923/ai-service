@@ -1,6 +1,6 @@
 import json
 import fitz
-from app.config import gemini_model as model
+from app.config import client as gemini_client
 
 
 def extract_text_from_pdf(file_bytes: bytes) -> str:
@@ -24,7 +24,10 @@ def parse_cv(raw_text: str) -> dict:
     {raw_text[:3000]}
     """
 
-    response = model.generate_content(prompt)
+    response = gemini_client.models.generate_content(
+        model="gemini-2.5-flash",
+        contents=prompt
+    )
 
     text = response.text.strip()
     if text.startswith("```"):

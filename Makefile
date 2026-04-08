@@ -18,7 +18,7 @@ else
 
     PYTHON_VENV=venv/bin/python
     UVICORN=venv/bin/uvicorn.exe
-    PIP_VENV=venv/bin/pip
+    PIP_VENV=venv/bin/pipQ
 
 endif
 
